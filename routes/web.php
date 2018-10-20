@@ -15,9 +15,12 @@ Route::domain('admin.eleb.com')->group(function () {
     Route::namespace('Admin')->group(function (){
         Route::resource('shop_categories','ShopCategoryController');
         Route::resource('shops','ShopController');
+
+        Route::get('login','SessionController@login')->name('login');
+        Route::get('logout','SessionController@logout')->name('logout');
+        Route::get('register','SessionController@register')->name('register');
     });
-    Route::get('login',function(){})->name('login');
-    Route::get('logout',function(){})->name('logout');
+
 });
 
 

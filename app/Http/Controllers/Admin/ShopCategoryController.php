@@ -11,7 +11,7 @@ class ShopCategoryController extends Controller
     //
     public function index()
     {
-        $shop_categories = ShopCategory::paginate(2);
+        $shop_categories = ShopCategory::paginate(5);
 
         return view('admin.shop_category.index',compact('shop_categories'));
     }
@@ -52,6 +52,7 @@ class ShopCategoryController extends Controller
     }
 
     public function destroy(ShopCategory $shop_category){
-        return $shop_category->delete();
+        $shop_category->delete();
+        return 'success';
     }
 }

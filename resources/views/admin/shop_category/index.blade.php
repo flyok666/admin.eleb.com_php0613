@@ -10,7 +10,7 @@
         <th>操作</th>
     </tr>
     @foreach ($shop_categories as $shop_category)
-    <tr>
+    <tr @if($shop_category->status==0)class="text-muted"@endif>
         <td>{{ $shop_category->id }}</td>
         <td>{{ $shop_category->name }}</td>
         <td>{{ $shop_category->img }}</td>
