@@ -11,6 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::domain('admin.eleb.com')->group(function () {
+    Route::namespace('Admin')->group(function (){
+        Route::resource('shop_categories','ShopCategoryController');
+        Route::resource('shops','ShopController');
+    });
+    Route::get('login',function(){})->name('login');
+    Route::get('logout',function(){})->name('logout');
+});
+
+
+
+Route::domain('shop.eleb.com')->group(function () {
+
+});
+
+
+Route::domain('www.eleb.com')->group(function () {
+
 });
