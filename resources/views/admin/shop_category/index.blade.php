@@ -13,7 +13,7 @@
     <tr @if($shop_category->status==0)class="text-muted"@endif>
         <td>{{ $shop_category->id }}</td>
         <td>{{ $shop_category->name }}</td>
-        <td>{{ $shop_category->img }}</td>
+        <td><img src="{{ $shop_category->img }}" /></td>
         <td>{{ $shop_category->status?"显示":"隐藏" }}</td>
         <td>
             <a href="{{ route('shop_categories.show',[$shop_category]) }}" class="btn btn-info btn-xs" title="查看">

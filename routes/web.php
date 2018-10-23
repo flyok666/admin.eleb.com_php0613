@@ -19,6 +19,11 @@ Route::domain('admin.eleb.com')->group(function () {
         Route::get('login','SessionController@login')->name('login');
         Route::get('logout','SessionController@logout')->name('logout');
         Route::get('register','SessionController@register')->name('register');
+
+
+        //文件上传
+        Route::post('upload','ShopCategoryController@upload')->name('upload');
+
     });
 
 });

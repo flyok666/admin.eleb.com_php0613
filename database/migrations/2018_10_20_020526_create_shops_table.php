@@ -47,6 +47,7 @@ status	int	状态:1正常,0待审核,-1禁用*/
             $table->text('discount');
             $table->smallInteger('status');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 
