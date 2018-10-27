@@ -13,6 +13,7 @@
 
 Route::domain('admin.eleb.com')->group(function () {
     Route::namespace('Admin')->group(function (){
+        Route::get('shop_categories/category/{id}','ShopCategoryController@index');
         Route::resource('shop_categories','ShopCategoryController');
         Route::resource('shops','ShopController');
 
@@ -36,5 +37,12 @@ Route::domain('shop.eleb.com')->group(function () {
 
 
 Route::domain('www.eleb.com')->group(function () {
+
+    //用户端
+    Route::post('user/login','User\UserController@login');
+
+    //商家列表
+    Route::get('shop/list','User\ShopController@list');
+
 
 });

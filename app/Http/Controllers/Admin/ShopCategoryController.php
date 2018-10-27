@@ -10,17 +10,24 @@ use Illuminate\Support\Facades\Storage;
 class ShopCategoryController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
-        //使用阿里云对象存储
 
-        //Storage::disk('oss');//使用阿里云oss存储文件
-        //Storage::put('path/to/file/file.jpg', $contents); //first parameter is the target file path, second paramter is file content
-        //Storage::putFile('path/to/file/file.jpg', 'local/path/to/local_file.jpg'); // upload file from local path
-        $shop_categories = ShopCategory::paginate(5);
-        //Storage::put('pic/1.jpg', file_get_contents(public_path('images/1.jpg')));//上传
-        //return '上传成功';
-        //dd(Storage::url('pic/1.jpg'));
+        //dd($request->except('page'));
+        //$shop_categories = ShopCategory::paginate(2);
+        //where([ [条件1],[条件2] ...    ]);
+        $wheres = [];
+        if($request->name){
+            $wheres[] = ['name','like',"%{$request->name}%"];
+        }
+        /*if($request->min_price){
+            $wheres[] = ['price','>=',$request->min_price];
+        }
+        if($request->max_price){
+            $wheres[] = ['price','<=',$request->max_price];
+        }*/
+        $shop_categories = ShopCategory::where($wheres)->paginate(2);
+
         return view('admin.shop_category.index',compact('shop_categories'));
 
     }

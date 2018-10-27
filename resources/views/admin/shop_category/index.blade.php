@@ -1,6 +1,11 @@
 @extends('admin.layout.default')
 
 @section('contents')
+    <form method="get">
+        名称<input type="text" name="name">
+        价格区间<input type="text" name="min_price">-<input type="text" name="max_price">
+        <button>搜索</button>
+    </form>
 <table class="table table-bordered table-striped table-hover">
     <tr>
         <th>ID</th>
@@ -29,7 +34,7 @@
     </tr>
     @endforeach
 </table>
-{{ $shop_categories->links() }}
+{{ $shop_categories->appends(request()->except('page'))->links() }}
 @endsection
 @section('javascript')
 <script>
