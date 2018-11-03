@@ -24,14 +24,27 @@ Route::domain('admin.eleb.com')->group(function () {
 
         //文件上传
         Route::post('upload','ShopCategoryController@upload')->name('upload');
+        //RBAC
+        Route::get('rbac','RbacController@index')->name('rbac');
 
     });
 
 });
 
 
-
+//商户端
 Route::domain('shop.eleb.com')->group(function () {
+    //最近一周订单量统计
+    Route::get('order/week','Shop\TongJiController@order_week');
+    //商户端最近一周菜品销量统计
+    Route::get('menu/week','Shop\TongJiController@menu_week');
+
+
+
+
+
+
+
 
 });
 

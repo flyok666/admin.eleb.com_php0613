@@ -67,8 +67,8 @@ GROUP BY
         //获取当前商家的菜品列表
         $menus = Menu::where('shop_id',$shop_id)->select(['id','goods_name'])->get();
         $keyed = $menus->mapWithKeys(function ($item) {
-            return [$item['id'] => $item['goods_name']];
-        });
+        return [$item['id'] => $item['goods_name']];
+    });
         $keyed2 = $menus->mapWithKeys(function ($item) {
             return [$item['id'] => 0];
         });
