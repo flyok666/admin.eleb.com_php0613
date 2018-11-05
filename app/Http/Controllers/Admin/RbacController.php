@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Exceptions\UnauthorizedException;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -48,5 +51,31 @@ class RbacController extends Controller
         echo '操作成功';
 
         
+    }
+
+
+    //查看商家
+    public function test()
+    {
+        //$role = Role::findById(1);
+        //$role->givePermissionTo(2);
+       if(!Auth::user()->can('删除商家')){
+            return '没有权限';
+        }
+        //给用户admin添加管理员角色
+        //$admin = Admin::find(1);
+//        $admin->assignRole(1);
+
+        //登录
+        //Auth::login($admin);
+        //$user = Auth::user();
+        //dd($user);
+        //dd($user->hasRole('zhangsan'));
+        //dd($user->can('123'));
+
+        //echo '操作完成';
+        return view('test');
+
+
     }
 }

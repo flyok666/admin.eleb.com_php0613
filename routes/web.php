@@ -27,6 +27,8 @@ Route::domain('admin.eleb.com')->group(function () {
         //RBAC
         Route::get('rbac','RbacController@index')->name('rbac');
 
+        Route::get('rbac/test','RbacController@test')->name('rbac/test');
+
     });
 
 });
