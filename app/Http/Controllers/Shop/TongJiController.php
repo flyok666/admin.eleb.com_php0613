@@ -96,7 +96,7 @@ GROUP BY
             $serie = [
                 'name'=> $menus[$id],
                 'type'=>'line',
-                'stack'=> '销量',
+                //'stack'=> '销量',
                 'data'=>array_values($data)
             ];
             $series[] = $serie;

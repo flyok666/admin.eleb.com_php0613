@@ -16,16 +16,9 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商家管理 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ route('shop_categories.create') }}">添加商家分类</a></li>
-                        <li><a href="{{ route('shop_categories.index') }}">商家分类列表</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="{{ route('shops.create') }}">添加商家</a></li>
-                        <li><a href="{{ route('shops.index') }}">商家列表</a></li>
-                    </ul>
-                </li>
+
+                {!! \App\Models\Nav::getNavs() !!}
+
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
