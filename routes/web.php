@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('about',function(){
+    return 'about';
+});
+
 Route::domain('admin.eleb.com')->group(function () {
     Route::namespace('Admin')->group(function (){
         Route::get('shop_categories/category/{id}','ShopCategoryController@index');
