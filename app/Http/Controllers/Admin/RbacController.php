@@ -54,13 +54,13 @@ class RbacController extends Controller
     }
 
 
-    //查看商家
+    //查看商家  delete()
     public function test()
     {
         //$role = Role::findById(1);
         //$role->givePermissionTo(2);
-       if(!Auth::user()->can('删除商家')){
-            return '没有权限';
+       if(!Auth::user()->can('删除商家的权限名称')){
+            return '没有权限';// return view('没有权限的视图')
         }
         //给用户admin添加管理员角色
         //$admin = Admin::find(1);
