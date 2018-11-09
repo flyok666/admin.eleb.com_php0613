@@ -33,6 +33,24 @@ Route::domain('admin.eleb.com')->group(function () {
 
         Route::get('rbac/test','RbacController@test')->name('rbac/test');
 
+        //订单列表
+        Route::get('wechat/orderList',function(){
+            return view('orderList');
+        });
+
+        //微信支付
+        Route::get('wechat/pay/{id}','WechatController@pay')->name('wechat.pay');
+        //支付成功通知地址
+        Route::any('wechat/notify','WechatController@notify')->name('wechat.notify');
+        //二维码
+        Route::get('qrcode','WechatController@qrcode')->name('qrcode');
+        //支付结果查询
+        Route::get('query','WechatController@query');
+
+
+        //测试中文分词搜索
+        Route::get('search','SearchController@index');
+
     });
 
 });
